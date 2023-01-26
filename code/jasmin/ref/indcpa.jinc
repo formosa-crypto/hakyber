@@ -24,6 +24,7 @@ fn __indcpa_keypair(reg u64 pkp, reg u64 skp, reg ptr u8[KYBER_SYMBYTES] randomn
 
   for i=0 to KYBER_SYMBYTES/8
   {
+    #declassify
     t64 = randomnessp[u64 i];
     inbuf[u64 i] = t64;
   }
@@ -101,6 +102,7 @@ fn __indcpa_enc(stack u64 sctp, reg ptr u8[32] msgp, reg u64 pkp, reg ptr u8[KYB
   pkp += KYBER_POLYVECBYTES;
   while (i < KYBER_SYMBYTES/8)
   {
+    #declassify
     t64 = (u64)[pkp];
     publicseed.[u64 8 * (int)i] = t64;
     pkp += 8;
@@ -171,6 +173,7 @@ fn __iindcpa_enc(reg ptr u8[KYBER_CT_LEN] ctp, reg ptr u8[32] msgp, reg u64 pkp,
   pkp += KYBER_POLYVECBYTES;
   while (i < KYBER_SYMBYTES/8)
   {
+    #declassify
     t64 = (u64)[pkp];
     publicseed.[u64 8*(int)i] = t64;
     pkp += 8;
