@@ -36,7 +36,7 @@ fn __polyvec_compress(reg u64 rp, stack u16[KYBER_VECN] a)
   
   aa = __polyvec_csubq(a);
 
-  while (i < KYBER_VECN)
+  while (i < KYBER_VECN - 3)
   {
     for k = 0 to 4
     {
@@ -100,6 +100,7 @@ fn __i_polyvec_compress(reg ptr u8[KYBER_POLYVECCOMPRESSEDBYTES] rp, stack u16[K
   
   aa = __polyvec_csubq(a);
 
+  #bounded
   while (i < KYBER_VECN)
   {
     for k = 0 to 4
@@ -163,6 +164,7 @@ fn __polyvec_decompress(reg u64 ap) -> stack u16[KYBER_VECN]
   i = 0;
   j = 0;
   
+  #bounded
   while (i < KYBER_VECN)
   {
     for k = 0 to 5

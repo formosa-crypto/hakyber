@@ -156,7 +156,7 @@ fn __keccakf1600_ref(reg ptr u64[25] state) -> reg ptr u64[25] {
   constptr = roundconstants;
   rctr = 0;
 
-  while (rctr < 192) {
+  while (rctr < 185) {
     state = __theta(state);
     state = __rho(state);
     state = __pi(state);
