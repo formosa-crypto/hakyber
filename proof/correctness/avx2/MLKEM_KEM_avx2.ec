@@ -331,7 +331,7 @@ lemma mlkem_kem_correct_enc mem _ctp _pkp _kp :
      k = load_array32 Glob.mem{1} _kp
 ].
 proc => /=.
-seq 15 4 : (#[/1:-2]post 
+seq 14 4 : (#[/1:-2]post 
       /\ valid_disj_reg _ctp 1088 _kp 32 
       /\ to_uint s_shkp{1} = _kp 
       /\ (forall k, 0<=k<32 => kr{1}.[k]=_K{2}.[k])); last first.
@@ -368,9 +368,10 @@ seq 15 4 : (#[/1:-2]post
       rewrite !WArray64.WArray64.get64E. search pack8_t (\bits8).
       by rewrite !pack8bE // !initiE //= /init8 !WArray64.WArray64.initiE /#.
     by smt().
-  auto => /> &1 &2 ?????????;split; 1: by smt().
+  auto => /> &1 &2 ?????????;split;  1: by smt().
   move => mm ii;do split => ???????; 1: smt().
   by rewrite /load_array32 tP => kk kkb; smt(Array32.initiE).
+
 wp;call (mlkem_correct_enc_0_avx2 mem _ctp _pkp).
 wp;ecall {1} (sha_g_avx2 buf{1} kr{1}).
 wp;ecall {1} (pkH_sha_avx2 mem (_pkp) ((Array32.init (fun (i : int) => buf{1}.[32 + i])))).

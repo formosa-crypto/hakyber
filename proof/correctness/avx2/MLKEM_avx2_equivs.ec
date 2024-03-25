@@ -1471,7 +1471,7 @@ Jkem_avx2.M(Jkem_avx2.Syscall)._poly_invntt ~Jkem.M(Jkem.Syscall)._poly_invntt :
    signed_bound_cxq res{2} 0 256 1.
 proc*.
 ecall{2} (invntt_correct (lift_array256 rp{2})) => /=.
-conseq />; 1:smt(). 
+conseq />; 1: by move => &1 &2 *;do split;  smt(). 
 ecall{1} (poly_invntt_avx2_corr rp{2}) => /=. 
 auto => /> &1 &2. rewrite lift_nttpack => -> H1 H2. rewrite nttunpackK //= => r <- H3. move => r0 <- H4. 
 rewrite /scale /map /lift_array256 /R tP => /> i Hi1 Hi2. rewrite !initiE //=. rewrite Zq.ComRing.mulrC //. qed.

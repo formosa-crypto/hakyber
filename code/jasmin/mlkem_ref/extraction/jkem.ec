@@ -1,5 +1,6 @@
 require import AllCore IntDiv CoreMap List Distr.
 from Jasmin require import JModel_x86.
+import SLH64.
 
 
 require import Array4 Array5 Array24 Array25 Array32 Array33 Array34 Array64
@@ -427,20 +428,20 @@ module M(SC:Syscall_t) = {
       c <- (loadW8 Glob.mem (W64.to_uint (in_0 + i)));
       state <-
       Array25.init
-      (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) (W64.to_uint i) ((
-      (get8 (WArray200.init64 (fun i_0 => state.[i_0])) (W64.to_uint i)) `^` c))));
+      (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) (W64.to_uint i) ((
+      (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) (W64.to_uint i)) `^` c))));
       i <- (i + (W64.of_int 1));
     }
     state <-
     Array25.init
-    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) (W64.to_uint i) ((
-    (get8 (WArray200.init64 (fun i_0 => state.[i_0])) (W64.to_uint i)) `^` trail_byte))));
+    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) (W64.to_uint i) ((
+    (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) (W64.to_uint i)) `^` trail_byte))));
     i <- r8;
     i <- (i - (W64.of_int 1));
     state <-
     Array25.init
-    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) (W64.to_uint i) ((
-    (get8 (WArray200.init64 (fun i_0 => state.[i_0])) (W64.to_uint i)) `^` (W8.of_int 128)))));
+    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) (W64.to_uint i) ((
+    (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) (W64.to_uint i)) `^` (W8.of_int 128)))));
     return (state);
   }
   
@@ -461,23 +462,23 @@ module M(SC:Syscall_t) = {
       c <- in_0.[i];
       state <-
       Array25.init
-      (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) i ((
-      (get8 (WArray200.init64 (fun i_0 => state.[i_0])) i) `^` c))));
+      (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) i ((
+      (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) i) `^` c))));
       i <- i + 1;
     }
     state <-
     Array25.init
-    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) 33 ((
-    (get8 (WArray200.init64 (fun i_0 => state.[i_0])) 33) `^` (W8.of_int 31)))));
+    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) 33 ((
+    (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) 33) `^` (W8.of_int 31)))));
     state <-
     Array25.init
-    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) (136 - 1) ((
-    (get8 (WArray200.init64 (fun i_0 => state.[i_0])) (136 - 1)) `^` (W8.of_int 128)))));
+    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) (136 - 1) ((
+    (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) (136 - 1)) `^` (W8.of_int 128)))));
     state <@ _keccakf1600_ (state);
     out <- sout;
     i <- 0;
     while (i < 128) {
-      c <- (get8 (WArray200.init64 (fun i_0 => state.[i_0])) i);
+      c <- (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) i);
       out.[i] <- c;
       i <- i + 1;
     }
@@ -565,23 +566,23 @@ module M(SC:Syscall_t) = {
       c <- in_0.[i];
       state <-
       Array25.init
-      (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) i ((
-      (get8 (WArray200.init64 (fun i_0 => state.[i_0])) i) `^` c))));
+      (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) i ((
+      (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) i) `^` c))));
       i <- i + 1;
     }
     state <-
     Array25.init
-    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) 32 ((
-    (get8 (WArray200.init64 (fun i_0 => state.[i_0])) 32) `^` (W8.of_int 6)))));
+    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) 32 ((
+    (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) 32) `^` (W8.of_int 6)))));
     state <-
     Array25.init
-    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) (72 - 1) ((
-    (get8 (WArray200.init64 (fun i_0 => state.[i_0])) (72 - 1)) `^` (W8.of_int 128)))));
+    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) (72 - 1) ((
+    (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) (72 - 1)) `^` (W8.of_int 128)))));
     state <@ _keccakf1600_ (state);
     out <- s_out;
     i <- 0;
     while (i < 64) {
-      c <- (get8 (WArray200.init64 (fun i_0 => state.[i_0])) i);
+      c <- (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) i);
       out.[i] <- c;
       i <- i + 1;
     }
@@ -601,18 +602,18 @@ module M(SC:Syscall_t) = {
       c <- in_0.[i];
       state <-
       Array25.init
-      (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) i ((
-      (get8 (WArray200.init64 (fun i_0 => state.[i_0])) i) `^` c))));
+      (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) i ((
+      (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) i) `^` c))));
       i <- i + 1;
     }
     state <-
     Array25.init
-    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) 34 ((
-    (get8 (WArray200.init64 (fun i_0 => state.[i_0])) 34) `^` (W8.of_int 31)))));
+    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) 34 ((
+    (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) 34) `^` (W8.of_int 31)))));
     state <-
     Array25.init
-    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) (168 - 1) ((
-    (get8 (WArray200.init64 (fun i_0 => state.[i_0])) (168 - 1)) `^` (W8.of_int 128)))));
+    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) (168 - 1) ((
+    (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) (168 - 1)) `^` (W8.of_int 128)))));
     return (state);
   }
   
@@ -629,7 +630,7 @@ module M(SC:Syscall_t) = {
     out <- s_out;
     i <- 0;
     while (i < 168) {
-      c <- (get8 (WArray200.init64 (fun i_0 => state.[i_0])) i);
+      c <- (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) i);
       out.[i] <- c;
       i <- i + 1;
     }
@@ -675,7 +676,7 @@ module M(SC:Syscall_t) = {
       t64 <- state.[i];
       out <-
       Array32.init
-      (WArray32.get8 (WArray32.set64 (WArray32.init8 (fun i_0 => out.[i_0])) i (t64)));
+      (WArray32.get8 (WArray32.set64 (WArray32.init8 (fun i_0 => (out).[i_0])) i (t64)));
       i <- i + 1;
     }
     return (out);
@@ -693,18 +694,18 @@ module M(SC:Syscall_t) = {
     state <@ __st0 (state);
     i <- 0;
     while (i < 8) {
-      t64 <- (get64 (WArray64.init8 (fun i_0 => in_0.[i_0])) i);
+      t64 <- (get64 (WArray64.init8 (fun i_0 => (in_0).[i_0])) i);
       state.[i] <- (state.[i] `^` t64);
       i <- i + 1;
     }
     state <-
     Array25.init
-    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) 64 ((
-    (get8 (WArray200.init64 (fun i_0 => state.[i_0])) 64) `^` (W8.of_int 6)))));
+    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) 64 ((
+    (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) 64) `^` (W8.of_int 6)))));
     state <-
     Array25.init
-    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => state.[i_0])) (72 - 1) ((
-    (get8 (WArray200.init64 (fun i_0 => state.[i_0])) (72 - 1)) `^` (W8.of_int 128)))));
+    (WArray200.get64 (WArray200.set8 (WArray200.init64 (fun i_0 => (state).[i_0])) (72 - 1) ((
+    (get8 (WArray200.init64 (fun i_0 => (state).[i_0])) (72 - 1)) `^` (W8.of_int 128)))));
     out_s <- out;
     state <@ _keccakf1600_ (state);
     out <- out_s;
@@ -713,7 +714,7 @@ module M(SC:Syscall_t) = {
       t64 <- state.[i];
       out <-
       Array64.init
-      (WArray64.get8 (WArray64.set64 (WArray64.init8 (fun i_0 => out.[i_0])) i (t64)));
+      (WArray64.get8 (WArray64.set64 (WArray64.init8 (fun i_0 => (out).[i_0])) i (t64)));
       i <- i + 1;
     }
     return (out);
@@ -1778,24 +1779,25 @@ module M(SC:Syscall_t) = {
     aux <- (32 %/ 8);
     i <- 0;
     while (i < aux) {
-      t64 <- (get64 (WArray32.init8 (fun i_0 => randomnessp.[i_0])) i);
+      t64 <- (get64 (WArray32.init8 (fun i_0 => (randomnessp).[i_0])) i);
       inbuf <-
       Array32.init
-      (WArray32.get8 (WArray32.set64 (WArray32.init8 (fun i_0 => inbuf.[i_0])) i (t64)));
+      (WArray32.get8 (WArray32.set64 (WArray32.init8 (fun i_0 => (inbuf).[i_0])) i (t64)));
       i <- i + 1;
     }
     buf <@ _sha3512_32 (buf, inbuf);
     aux <- (32 %/ 8);
     i <- 0;
     while (i < aux) {
-      t64 <- (get64 (WArray64.init8 (fun i_0 => buf.[i_0])) i);
+      t64 <- (get64 (WArray64.init8 (fun i_0 => (buf).[i_0])) i);
       publicseed <-
       Array32.init
-      (WArray32.get8 (WArray32.set64 (WArray32.init8 (fun i_0 => publicseed.[i_0])) i (t64)));
-      t64 <- (get64 (WArray64.init8 (fun i_0 => buf.[i_0])) (i + (32 %/ 8)));
+      (WArray32.get8 (WArray32.set64 (WArray32.init8 (fun i_0 => (publicseed).[i_0])) i (t64)));
+      t64 <-
+      (get64 (WArray64.init8 (fun i_0 => (buf).[i_0])) (i + (32 %/ 8)));
       noiseseed <-
       Array32.init
-      (WArray32.get8 (WArray32.set64 (WArray32.init8 (fun i_0 => noiseseed.[i_0])) i (t64)));
+      (WArray32.get8 (WArray32.set64 (WArray32.init8 (fun i_0 => (noiseseed).[i_0])) i (t64)));
       i <- i + 1;
     }
     zero <- (W64.of_int 0);
@@ -1874,7 +1876,7 @@ module M(SC:Syscall_t) = {
     aux <- (32 %/ 8);
     i <- 0;
     while (i < aux) {
-      t64 <- (get64 (WArray32.init8 (fun i_0 => publicseed.[i_0])) i);
+      t64 <- (get64 (WArray32.init8 (fun i_0 => (publicseed).[i_0])) i);
       Glob.mem <-
       storeW64 Glob.mem (W64.to_uint (pkp + (W64.of_int 0))) (t64);
       pkp <- (pkp + (W64.of_int 8));
@@ -1920,7 +1922,7 @@ module M(SC:Syscall_t) = {
       t64 <- (loadW64 Glob.mem (W64.to_uint (pkp + (W64.of_int 0))));
       publicseed <-
       Array32.init
-      (WArray32.get8 (WArray32.set64_direct (WArray32.init8 (fun i_0 => publicseed.[i_0])) (8 * (W64.to_uint i)) (t64)));
+      (WArray32.get8 (WArray32.set64_direct (WArray32.init8 (fun i_0 => (publicseed).[i_0])) (8 * (W64.to_uint i)) (t64)));
       pkp <- (pkp + (W64.of_int 8));
       i <- (i + (W64.of_int 1));
     }
@@ -2034,7 +2036,7 @@ module M(SC:Syscall_t) = {
       t64 <- (loadW64 Glob.mem (W64.to_uint (pkp + (W64.of_int 0))));
       publicseed <-
       Array32.init
-      (WArray32.get8 (WArray32.set64_direct (WArray32.init8 (fun i_0 => publicseed.[i_0])) (8 * (W64.to_uint i)) (t64)));
+      (WArray32.get8 (WArray32.set64_direct (WArray32.init8 (fun i_0 => (publicseed).[i_0])) (8 * (W64.to_uint i)) (t64)));
       pkp <- (pkp + (W64.of_int 8));
       i <- (i + (W64.of_int 1));
     }
@@ -2154,7 +2156,7 @@ module M(SC:Syscall_t) = {
     aux <- ((3 * 320) + 128);
     i <- 0;
     while (i < aux) {
-      t1 <- (get8_direct (WArray1088.init8 (fun i_0 => ctpc.[i_0])) i);
+      t1 <- (get8_direct (WArray1088.init8 (fun i_0 => (ctpc).[i_0])) i);
       t2 <- (loadW8 Glob.mem (W64.to_uint (ctp + (W64.of_int i))));
       t1 <- (t1 `^` t2);
       t64 <- (zeroextu64 t1);
@@ -2177,7 +2179,7 @@ module M(SC:Syscall_t) = {
     i <- 0;
     while (i < 32) {
       t2 <- (loadW8 Glob.mem (W64.to_uint (dst + (W64.of_int i))));
-      t1 <- (get8_direct (WArray32.init8 (fun i_0 => src.[i_0])) i);
+      t1 <- (get8_direct (WArray32.init8 (fun i_0 => (src).[i_0])) i);
       t2 <- (t2 `^` t1);
       t2 <- (t2 `&` (truncateu8 cnd));
       t1 <- (t1 `^` t2);
@@ -2227,7 +2229,7 @@ module M(SC:Syscall_t) = {
     skp <- s_skp;
     i <- 0;
     while (i < 4) {
-      t64 <- (get64 (WArray32.init8 (fun i_0 => h_pk.[i_0])) i);
+      t64 <- (get64 (WArray32.init8 (fun i_0 => (h_pk).[i_0])) i);
       Glob.mem <-
       storeW64 Glob.mem (W64.to_uint (skp + (W64.of_int 0))) (t64);
       skp <- (skp + (W64.of_int 8));
@@ -2238,7 +2240,7 @@ module M(SC:Syscall_t) = {
     aux <- (32 %/ 8);
     i <- 0;
     while (i < aux) {
-      t64 <- (get64 (WArray32.init8 (fun i_0 => randomnessp2.[i_0])) i);
+      t64 <- (get64 (WArray32.init8 (fun i_0 => (randomnessp2).[i_0])) i);
       Glob.mem <-
       storeW64 Glob.mem (W64.to_uint (skp + (W64.of_int 0))) (t64);
       skp <- (skp + (W64.of_int 8));
@@ -2267,10 +2269,10 @@ module M(SC:Syscall_t) = {
     aux <- (32 %/ 8);
     i <- 0;
     while (i < aux) {
-      t64 <- (get64 (WArray32.init8 (fun i_0 => randomnessp.[i_0])) i);
+      t64 <- (get64 (WArray32.init8 (fun i_0 => (randomnessp).[i_0])) i);
       buf <-
       Array64.init
-      (WArray64.get8 (WArray64.set64 (WArray64.init8 (fun i_0 => buf.[i_0])) i (t64)));
+      (WArray64.get8 (WArray64.set64 (WArray64.init8 (fun i_0 => (buf).[i_0])) i (t64)));
       i <- i + 1;
     }
     pkp <- s_pkp;
@@ -2288,7 +2290,7 @@ module M(SC:Syscall_t) = {
     aux <- (32 %/ 8);
     i <- 0;
     while (i < aux) {
-      t64 <- (get64 (WArray64.init8 (fun i_0 => kr.[i_0])) i);
+      t64 <- (get64 (WArray64.init8 (fun i_0 => (kr).[i_0])) i);
       Glob.mem <-
       storeW64 Glob.mem (W64.to_uint (shkp + (W64.of_int (8 * i)))) (t64);
       i <- i + 1;
@@ -2330,7 +2332,7 @@ module M(SC:Syscall_t) = {
       t64 <- (loadW64 Glob.mem (W64.to_uint (hp + (W64.of_int (8 * i)))));
       buf <-
       Array64.init
-      (WArray64.get8 (WArray64.set64_direct (WArray64.init8 (fun i_0 => buf.[i_0])) (32 + (8 * i)) (t64)));
+      (WArray64.get8 (WArray64.set64_direct (WArray64.init8 (fun i_0 => (buf).[i_0])) (32 + (8 * i)) (t64)));
       i <- i + 1;
     }
     s_skp <- skp;
