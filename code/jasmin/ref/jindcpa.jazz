@@ -23,6 +23,7 @@ export fn indcpa_keypair_jazz(reg u64 pkp, reg u64 skp, reg u64 randomnessp)
   sskp = skp;
 
   i = 0;
+  #bounded
   while (i < KYBER_SYMBYTES)
   {
     c = (u8)[randomnessp + i];
@@ -34,6 +35,7 @@ export fn indcpa_keypair_jazz(reg u64 pkp, reg u64 skp, reg u64 randomnessp)
 
   i = 0;
   j = KYBER_SYMBYTES;
+  #bounded
   while (i < KYBER_SYMBYTES)
   {
     c = buf[(int)i];
@@ -107,6 +109,7 @@ export fn indcpa_enc_jazz(reg u64 ctp, reg u64 msgp, reg u64 pkp, reg u64 coinsp
   sctp = ctp;
 
   i = 0;
+  #bounded
   while (i < KYBER_SYMBYTES)
   {
     c = (u8)[coinsp+i];
@@ -118,6 +121,7 @@ export fn indcpa_enc_jazz(reg u64 ctp, reg u64 msgp, reg u64 pkp, reg u64 coinsp
 
   i = 0;
   pkp += KYBER_POLYVECBYTES;
+  #bounded
   while (i < KYBER_SYMBYTES)
   {
     c = (u8)[pkp];

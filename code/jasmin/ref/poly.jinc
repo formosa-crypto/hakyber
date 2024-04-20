@@ -65,6 +65,7 @@ fn _poly_basemul(reg ptr u16[KYBER_N] rp, reg const ptr u16[KYBER_N] ap bp) -> r
   zetasctr = 64;
   i = 0;
 
+  #bounded
   while(i < KYBER_N)
   {
     zetasp = jzetas;
@@ -150,6 +151,7 @@ fn _poly_compress(reg u64 rp, reg ptr u16[KYBER_N] a) -> reg ptr u16[KYBER_N]
 
   i = 0;
   j = 0;
+  #bounded
   while(i < 128)
   {
     t  = a[(int)j];
@@ -186,6 +188,7 @@ fn _i_poly_compress(reg ptr u8[KYBER_POLYCOMPRESSEDBYTES] rp, reg ptr u16[KYBER_
 
   i = 0;
   j = 0;
+  #bounded
   while(i < 128)
   {
     t  = a[(int)j];
@@ -222,6 +225,7 @@ fn _poly_decompress(reg ptr u16[KYBER_N] rp, reg u64 ap) -> stack u16[KYBER_N]
   i = 0;
   j = 0;
 
+  #bounded
   while (i < 128) {
     t  = (u8)[ap+i];
     d0 = (16u)t;
@@ -443,6 +447,7 @@ fn _poly_getnoise(reg ptr u16[KYBER_N] rp, reg ptr u8[KYBER_SYMBYTES] seed, reg 
 
   i = 0;
   j = 0;
+  #bounded
   while (i < 128) {
     c = buf[(int)i];
     a = c;
@@ -496,9 +501,11 @@ fn _poly_invntt(reg ptr u16[KYBER_N] rp) -> reg ptr u16[KYBER_N]
   zetasctr = 0;
 
   len = 2;
+  #bounded
   while (len <= 128)
   {
     start = 0;
+    #bounded
     while (start < 256)
     {
       zeta = zetasp[(int)zetasctr];
@@ -506,6 +513,7 @@ fn _poly_invntt(reg ptr u16[KYBER_N] rp) -> reg ptr u16[KYBER_N]
 
       j = start;
       cmp = start + len;
+      #bounded
       while (j < cmp)
       {
         offset = j + len;
@@ -555,15 +563,18 @@ fn _poly_ntt(reg ptr u16[KYBER_N] rp) -> reg ptr u16[KYBER_N]
   zetasp = jzetas;
   zetasctr = 0;
   len = 128;
+  #bounded
   while (len >= 2)
   {
     start = 0;
+    #bounded
     while (start < 256)
     {
       zetasctr += 1;
       zeta = zetasp[(int)zetasctr];
       j = start;
       cmp = start + len;
+      #bounded
       while (j < cmp)
       {
         offset = j + len;
@@ -595,6 +606,7 @@ fn _poly_sub(reg ptr u16[KYBER_N] rp ap bp) -> reg ptr u16[KYBER_N]
   reg u64 i;
 
   i = 0;
+  #bounded
   while (i < KYBER_N) {
     a = ap[(int)i];
     b = bp[(int)i];
@@ -614,7 +626,7 @@ fn _poly_tobytes(reg u64 rp, reg ptr u16[KYBER_N] a) -> reg ptr u16[KYBER_N]
 
   i = 0;
   j = 0;
-  while (i < KYBER_N)
+  while (i < KYBER_N - 1)
   {
     t0 = a[(int)i]; 
     i += 1;
