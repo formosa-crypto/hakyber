@@ -17,7 +17,7 @@ jobs:
     name: Check Hakyber EasyCrypt Project
     runs-on: ubuntu-20.04
     container:
-      image: easycryptpa/ec-build-box
+      image: ghcr.io/easycrypt/ec-build-box
     strategy:
       fail-fast: false
     steps:
@@ -40,7 +40,6 @@ jobs:
       run: opam install easycrypt
     - name: Detect SMT provers
       run: |
-        rm -f ~/.why3.conf
         opam config exec -- easycrypt why3config -why3 ~/.why3.conf
     - name: Compile Project
       run: opam config exec -- make checkec
