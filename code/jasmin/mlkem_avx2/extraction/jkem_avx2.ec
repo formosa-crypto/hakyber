@@ -4369,7 +4369,6 @@ module M(SC:Syscall_t) = {
     var val1:W16.t;
     var t:W16.t;
     var val2:W16.t;
-    var cond:bool;
     
     ctr <- offset;
     pos <- (W64.of_int 0);
@@ -4387,15 +4386,13 @@ module M(SC:Syscall_t) = {
         t <- (t `<<` (W8.of_int 4));
         val2 <- (val2 `|` t);
         pos <- (pos + (W64.of_int 3));
-        cond <- (val1 \ult (W16.of_int 3329));
-        if (cond) {
+        if ((val1 \ult (W16.of_int 3329))) {
           rp.[(W64.to_uint ctr)] <- val1;
           ctr <- (ctr + (W64.of_int 1));
         } else {
           
         }
-        cond <- (val2 \ult (W16.of_int 3329));
-        if (cond) {
+        if ((val2 \ult (W16.of_int 3329))) {
           if ((ctr \ult (W64.of_int 256))) {
             rp.[(W64.to_uint ctr)] <- val2;
             ctr <- (ctr + (W64.of_int 1));

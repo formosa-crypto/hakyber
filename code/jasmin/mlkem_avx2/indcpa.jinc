@@ -29,6 +29,7 @@ fn __indcpa_keypair(reg u64 pkp, reg u64 skp, reg ptr u8[MLKEM_SYMBYTES] randomn
 
   for i=0 to MLKEM_SYMBYTES/8
   {
+    #[declassify]
     t64 = buf[u64 i];
     publicseed[u64 i] = t64;
     t64 = buf[u64 i + MLKEM_SYMBYTES/8];
@@ -91,6 +92,7 @@ fn __indcpa_enc_0(stack u64 sctp, reg ptr u8[MLKEM_INDCPA_MSGBYTES] msgp, reg u6
   pkp += MLKEM_POLYVECBYTES;
   while (i < MLKEM_SYMBYTES/8)
   {
+    #[declassify]
     t64 = (u64)[pkp];
     publicseed.[u64 8 * (int)i] = t64;
     pkp += 8;
@@ -155,6 +157,7 @@ fn __indcpa_enc_1(reg ptr u8[MLKEM_INDCPA_CIPHERTEXTBYTES] ctp, reg ptr u8[MLKEM
   pkp += MLKEM_POLYVECBYTES;
   while (i < MLKEM_SYMBYTES/8)
   {
+    #[declassify]
     t64 = (u64)[pkp];
     publicseed.[u64 8*(int)i] = t64;
     pkp += 8;

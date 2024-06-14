@@ -1,3 +1,4 @@
+require "params.jinc"
 require "gen_matrix.jinc"
 
 export fn gen_matrix_jazz(reg u64 ap, reg u64 seedp, reg u64 transposed)
@@ -11,6 +12,7 @@ export fn gen_matrix_jazz(reg u64 ap, reg u64 seedp, reg u64 transposed)
 
   for i = 0 to MLKEM_SYMBYTES
   {
+    #[declassify]
     c = (u8)[seedp + i];
     seed[i] = c;
   }
